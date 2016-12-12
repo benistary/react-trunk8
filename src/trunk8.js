@@ -12,30 +12,29 @@ function getLineHeight(el) {
     Number(computedLineHeight) * Number(computedStyle['font-size'].replace('px', ''));
 }
 
-function apply(el, content, bite, lines, fill) {
-  el.innerHTML = content.slice(0, bite) + (lines > 1 ? fill : '');
+function apply(el, content, bite, fill) {
+  el.innerHTML = content.slice(0, bite) + (fill ? fill : '');
 }
 
 function truncate() {
   var fill = this.props.fill;
   var container = this.refs.container;
   var lineHeight = getLineHeight(container);
+  var maxHeight = lineHeight * this.props.lines;
   var maxLine = this.props.lines;
   var content = this.props.children;
   var chunk = this.props.chunk;
-  var lines = 1;
   var bite = chunk;
 
   while (bite < content.length) {
-    apply(container, content, bite, lines, fill);
-    lines = Math.floor(container.clientHeight / lineHeight);
-    if (lines > maxLine) {
+    apply(container, content, bite, fill);
+    if (container.clientHeight > maxHeight) {
       bite -= chunk;
       break;
     }
     bite += chunk;
   }
-  apply(container, content, bite, lines, fill);
+  apply(container, content, bite, bite < content.length ? fill : '');
 }
 
 function getNativeClampStyle(lines) {
@@ -53,9 +52,10 @@ function Trunk8() {
 Trunk8.prototype = Object.create(React.Component.prototype);
 
 Trunk8.prototype.componentDidMount = function () {
+  var self = this;
   if (!isNativeSupport()) {
     this.onResize = function() {
-      truncate.apply(this);
+      truncate.apply(self);
     };
     window.addEventListener('resize', this.onResize);
     this.onResize();
