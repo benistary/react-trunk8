@@ -13,7 +13,7 @@ How to use
 -----
 
 ```
-import Trunk8 from 'react-trunk8'
+import Trunk8 from 'react-trunk8';
 
 ...
 
