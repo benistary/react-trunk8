@@ -54,7 +54,7 @@ Trunk8.prototype = Object.create(React.Component.prototype);
 
 Trunk8.prototype.componentDidMount = function () {
   if (!isNativeSupport()) {
-    this.onResize = () => {
+    this.onResize = function() {
       truncate.apply(this);
     };
     window.addEventListener('resize', this.onResize);
