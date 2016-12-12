@@ -4,12 +4,15 @@ var webpack = require('webpack');
 var ENV = process.argv.indexOf('--prod') >= 0 ? 'production' : 'development';
 
 module.exports = {
-  entry: './src/app',
+  entry: {
+    './dev/js/bundle': './src/app',
+    './dist/react-trunk8': './src/react-trunk8',
+  },
 
   output: {
-    path: './build/js',
-    publicPath: "/js",
-    filename: 'bundle.js'
+    path: './',
+    publicPath: "/",
+    filename: '[name].js'
   },
 
   resolve: {
@@ -70,19 +73,7 @@ module.exports = {
     hot: false,
     color: true,
     port: 9000,
-    contentBase: './build/',
-    // proxy: {
-    //   '/': {
-    //     target: 'index.html',
-    //     secure: false,
-    //     bypass: function(req, res, proxyOptions) {
-    //       if (!/^\/(build|styleguide)/.test(req.url)) {
-    //         return '/build' + req.url;
-    //       }
-    //       return req.url;
-    //     }
-    //   }
-    // },
+    contentBase: './',
     historyApiFallback: false
   }
 };
