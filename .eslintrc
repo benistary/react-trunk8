@@ -1,0 +1,52 @@
+{
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "sourceType": "module",
+    "allowImportExportEverywhere": false
+  },
+  "plugins": [
+    "flowtype"
+  ],
+  "extends": [
+    "airbnb",
+    "plugin:flowtype/recommended"
+  ],
+  "rules": {
+    "arrow-body-style": [2, "as-needed"],
+    "comma-dangle": [2, "never"],
+    "max-len": 0,
+    "no-shadow": 0,
+    "no-unused-vars": [2, { "args": "none", "varsIgnorePattern": "^(tag|modifiers|elements|appearance)$" }],
+    "no-param-reassign": [2, { "props": false }],
+    "new-cap": [2, { "capIsNewExceptions": ["Map", "List"] }],
+    "import/no-extraneous-dependencies": 0,
+    "import/extensions": 0,
+    "import/no-unresolved": [2, { "ignore": ["^domain|decls"] }],
+    "import/prefer-default-export": 0,
+    "jsx-a11y/no-static-element-interactions": 0,
+    "react/prop-types": 0,
+    "react/jsx-no-bind": 0,
+    "react/jsx-closing-bracket-location": [2, "tag-aligned"],
+    "react/no-string-refs": 0,
+    "react/sort-comp": [1, {
+      "order": [
+        "props",
+        "state",
+        "defaultProps",
+        "constructor",
+        "lifecycle",
+        "everything-else",
+        "render"
+      ]
+    }],
+    "flowtype/space-before-type-colon": 0
+  },
+  "env": {
+    "browser": true
+  },
+  "globals": {
+    "ScrollToPlugin": true,
+    "Easing": true,
+    "Power2": true
+  }
+}

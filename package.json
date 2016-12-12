@@ -1,0 +1,55 @@
+{
+  "name": "react-trunk8",
+  "version": "1.0.0",
+  "description": "Multiple lines ellipsis for React componet",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "npm run dev",
+    "dev": "nodemon -w webpack.config.js node_modules/webpack-dev-server/bin/webpack-dev-server.js",
+    "build": "webpack --prod",
+    "flow": "flow",
+    "lint": "eslint -c .eslintrc --ignore-path .eslintignore **"
+  },
+  "author": "Marty",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.17.0",
+    "babel-eslint": "^7.1.0",
+    "babel-loader": "^6.2.5",
+    "babel-plugin-tcomb": "^0.3.22",
+    "babel-plugin-transform-class-properties": "^6.19.0",
+    "babel-plugin-transform-runtime": "^6.15.0",
+    "babel-preset-es2015": "^6.16.0",
+    "babel-preset-react": "^6.16.0",
+    "eslint": "^3.9.1",
+    "eslint-config-airbnb": "^12.0.0",
+    "eslint-loader": "^1.6.0",
+    "eslint-plugin-flowtype": "^2.29.1",
+    "eslint-plugin-import": "^1.16.0",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
+    "eslint-plugin-react": "^6.4.1",
+    "flow-bin": "^0.33.0",
+    "nodemon": "^1.11.0",
+    "tcomb": "^3.2.15",
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.16.2"
+  },
+  "dependencies": {
+    "babel-runtime": "^6.18.0",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/yamoo/react-trunk8.git"
+  },
+  "keywords": [
+    "react",
+    "ellipsis",
+    "trancate"
+  ],
+  "bugs": {
+    "url": "https://github.com/yamoo/react-trunk8/issues"
+  },
+  "homepage": "https://github.com/yamoo/react-trunk8#readme"
+}

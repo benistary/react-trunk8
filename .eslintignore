@@ -1,0 +1,10 @@
+build/
+*.css
+*.png
+*.svg
+*.md
+*.log
+*.json
+*.zip
+styleguide/index.js
+webpack.config.js
