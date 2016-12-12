@@ -2,7 +2,7 @@
   "name": "react-trunk8",
   "version": "1.0.1",
   "description": "Multiple lines ellipsis for React componet",
-  "main": "src/index.js",
+  "main": "src/trunk8.js",
   "scripts": {
     "start": "npm run dev",
     "dev": "nodemon -w webpack.config.js node_modules/webpack-dev-server/bin/webpack-dev-server.js",
