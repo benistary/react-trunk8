@@ -1,6 +1,6 @@
 {
   "name": "react-trunk8",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "Multiple lines ellipsis for React componet",
   "main": "src/trunk8.js",
   "scripts": {
