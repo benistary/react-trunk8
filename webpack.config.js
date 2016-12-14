@@ -5,8 +5,7 @@ var ENV = process.argv.indexOf('--prod') >= 0 ? 'production' : 'development';
 
 module.exports = {
   entry: {
-    './dev/js/bundle': './src/app',
-    './dist/react-trunk8': './src/react-trunk8',
+    './dev/js/bundle': './src/app'
   },
 
   output: {

@@ -12,8 +12,23 @@ function getLineHeight(el) {
     Number(computedLineHeight) * Number(computedStyle['font-size'].replace('px', ''));
 }
 
-function apply(el, content, bite, fill) {
-  el.innerHTML = content.slice(0, bite) + (fill ? fill : '');
+function getText(content) {
+  var text = '';
+  if (content instanceof Array) {
+    text += getText(content[0]);
+    if (content.length > 0) {
+      text += getText(content.slice(1));
+    }
+  } else if (typeof content === 'object' && content.props) {
+    text += getText(content.props.children);
+  } else if (typeof content === 'string') {
+    text += content;
+  }
+  return text;
+}
+
+function apply(el, context, bite, fill) {
+  el.innerText = context.slice(0, bite) + (fill ? fill : '');
 }
 
 function truncate() {
@@ -21,20 +36,19 @@ function truncate() {
   var container = this.refs.container;
   var lineHeight = getLineHeight(container);
   var maxHeight = lineHeight * this.props.lines;
-  var maxLine = this.props.lines;
-  var content = this.props.children;
+  var context = this.state.context;
   var chunk = this.props.chunk;
   var bite = chunk;
 
-  while (bite < content.length) {
-    apply(container, content, bite, fill);
+  while (bite < context.length) {
+    apply(container, context, bite, fill);
     if (container.clientHeight > maxHeight) {
       bite -= chunk;
       break;
     }
     bite += chunk;
   }
-  apply(container, content, bite, bite < content.length ? fill : '');
+  apply(container, context, bite, bite < context.length ? fill : '');
 }
 
 function getNativeClampStyle(lines) {
@@ -46,7 +60,10 @@ function getNativeClampStyle(lines) {
   };
 }
 
-function Trunk8() {
+function Trunk8(props) {
+  this.state = {
+    context: getText(props.children)
+  };
 }
 
 Trunk8.prototype = Object.create(React.Component.prototype);
@@ -87,7 +104,7 @@ Trunk8.prototype.render = function () {
 }
 
 Trunk8.defaultProps = {
-  fill: '&hellip;',
+  fill: '\u2026',
   lines: 3,
   chunk: 1
 };
