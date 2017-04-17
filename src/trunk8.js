@@ -90,7 +90,7 @@ Trunk8.prototype.render = function () {
     React.createElement(
       'div',
       {
-        ref: 'container',
+        ref: function() { this.refs.container = this },
         style: getNativeClampStyle(this.props.lines)
       },
       this.props.children
@@ -98,7 +98,7 @@ Trunk8.prototype.render = function () {
     React.createElement(
       'div',
       {
-        ref: 'container'
+        ref: function() { this.refs.container = this }
       }
     );
 }
