@@ -86,11 +86,12 @@ Trunk8.prototype.componentWillUnmount = function () {
 };
 
 Trunk8.prototype.render = function () {
+  var self = this;
   return isNativeSupport() ?
     React.createElement(
       'div',
       {
-        ref: function(el) { this.refs.container = el },
+        ref: function(el) { self.refs.container = el },
         style: getNativeClampStyle(this.props.lines)
       },
       this.props.children
@@ -98,7 +99,7 @@ Trunk8.prototype.render = function () {
     React.createElement(
       'div',
       {
-        ref: function(el) { this.refs.container = el }
+        ref: function(el) { self.refs.container = el }
       }
     );
 }
