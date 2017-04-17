@@ -33,7 +33,7 @@ function apply(el, context, bite, fill) {
 
 function truncate() {
   var fill = this.props.fill;
-  var container = this.refs.container;
+  var container = this.container;
   var lineHeight = getLineHeight(container);
   var maxHeight = lineHeight * this.props.lines;
   var context = this.state.context;
@@ -91,7 +91,7 @@ Trunk8.prototype.render = function () {
     React.createElement(
       'div',
       {
-        ref: function(el) { self.refs.container = el },
+        ref: function(el) { self.container = el },
         style: getNativeClampStyle(this.props.lines)
       },
       this.props.children
@@ -99,7 +99,7 @@ Trunk8.prototype.render = function () {
     React.createElement(
       'div',
       {
-        ref: function(el) { self.refs.container = el }
+        ref: function(el) { self.container = el }
       }
     );
 }
