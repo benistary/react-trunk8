@@ -1,7 +1,7 @@
 var React = require('react');
 
 function isNativeSupport() {
-  return typeof document.body.style.webkitLineClamp !== 'undefined';
+  if (typeof document !== 'undefined') return typeof document.body.style.webkitLineClamp !== 'undefined';
 }
 
 function getLineHeight(el) {
